@@ -51,8 +51,11 @@
     <Compile Include="Education.cs" />
     <Compile Include="EntityType.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="Interface\ISwapDisplay.cs" />
     <Compile Include="JobTitle.cs" />
     <Compile Include="License.cs" />
+    <Compile Include="Project.cs" />
+    <Compile Include="ProjectCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

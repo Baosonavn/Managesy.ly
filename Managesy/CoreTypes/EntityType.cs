@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -175,12 +176,48 @@ namespace CoreTypes
 
         #region METHODS
 
+        /// <summary>
+        /// Overide toString method to write some more information
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             string toString = "TYPE: " + this.GetType().ToString();
             toString += "\n";
             toString += ("GUID: " + this.Guid.ToString());
             return base.ToString(); 
+        }
+
+        /// <summary>
+        /// Swap value of "DisplayIndex" property of 2 entity instance
+        /// </summary>
+        /// <param name="entity_1"></param>
+        /// <param name="entity_2"></param>
+        /// <returns></returns>
+        protected static bool SwapDisplay(EntityType entity_1, EntityType entity_2)
+        {
+            try
+            {
+                //If the type of 2 instance are different then do nothing
+                if (!entity_1.GetType().Equals(entity_2.GetType()))
+                    return false;
+
+                //Check if the type of 2 instance have property DisplayIndex
+                PropertyInfo propertyInfo = entity_1.GetType().GetProperty("DisplayIndex");
+                if (propertyInfo == null)
+                    return false;
+
+                dynamic temp = propertyInfo.GetValue(entity_1);
+                propertyInfo.SetValue(entity_1, propertyInfo.GetValue(entity_2));
+                propertyInfo.SetValue(entity_2, temp);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
 
         #endregion

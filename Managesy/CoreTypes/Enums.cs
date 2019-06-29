@@ -49,6 +49,17 @@ namespace CoreTypes
                 Married,
                 Divorced
             }
+
+            [Flags]
+            public enum Permission
+            {
+                IsAdmin = 1,
+                AddProject = 2,
+                AccessProjectTemplate = 4,
+                ManagePeopleAndCompany = 8,
+                ExecutiveAccessToAllProjects = 16,
+                NoSpecialPermission = 32
+            }
         }
  
         namespace Company
@@ -69,6 +80,34 @@ namespace CoreTypes
                 Master, //Thac si
                 PhD, //Tien si
                 Other
+            }
+        }
+
+        namespace Project
+        {
+            [Flags]
+            public enum Feature
+            {
+                Task = 1,
+                Message = 2,
+                Time = 4,
+                Risks = 8,
+                Billing = 16,
+                Milestones = 32,
+                Files = 64,
+                Notebooks = 128,
+                Links = 256,
+                Comments = 512
+            }
+
+            public enum Status
+            {
+                NotStarted,
+                Started,
+                Postponed,
+                Completed,
+                Archived,
+                Deleted,
             }
         }
     }

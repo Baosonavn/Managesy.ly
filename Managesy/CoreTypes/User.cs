@@ -44,6 +44,11 @@ namespace CoreTypes
         private ICollection<Education> _Educations;
         private ICollection<Experience> _Experiences;
         private ICollection<License> _Licenses;
+        private Permission _Permission;
+        private ICollection<BankAccount> _BankAccounts;
+        private ICollection<JobTitle> _JobTitles;
+        private Company _Company;
+        private Department _Department;
         #endregion
 
         #region REQUIRED PROPERTIES
@@ -112,6 +117,20 @@ namespace CoreTypes
             {
                 if (value != null || value != _Email) _Email = value;
                 OnPropertyChanged("Email");
+            }
+        }
+
+        /// <summary>
+        /// Get or set the permission of this User
+        /// </summary>
+        [Required]
+        public Permission Permission
+        {
+            get { return _Permission; }
+            set
+            {
+                if (value != _Permission) _Permission = value;
+                OnPropertyChanged();
             }
         }
         #endregion
@@ -189,24 +208,56 @@ namespace CoreTypes
         #region NAVIGATION PROPERTIES
 
         /// <summary>
-        /// Get the department of this user.
+        /// Get or set the department of this user.
         /// </summary>
-        public virtual Department Department { get; }
+        public virtual Department Department
+        {
+            get { return _Department; }
+            set
+            {
+                if (value != null || value != _Department) _Department = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Get or set this user's job titles
         /// </summary>
-        public virtual ICollection<JobTitle> JobTitles { get; set; }
+        public virtual ICollection<JobTitle> JobTitles
+        {
+            get { return _JobTitles; }
+            set
+            {
+                if (value != null || value != _JobTitles) _JobTitles = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Get or set this user's company
         /// </summary>
-        public virtual Company Company { get; set; } 
+        public virtual Company Company
+        {
+            get { return _Company; }
+            set
+            {
+                if (value != null || value != _Company) _Company = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Get or set this user's bank accounts
         /// </summary>
-        public virtual ICollection<BankAccount> BankAccounts { get; set; }
+        public virtual ICollection<BankAccount> BankAccounts
+        {
+            get { return _BankAccounts; }
+            set
+            {
+                if (value != null || value != _BankAccounts) _BankAccounts = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Get or set this user's education records.
@@ -246,6 +297,8 @@ namespace CoreTypes
                 OnPropertyChanged();
             }
         }
+
+       
         #endregion
 
         #region FOREIGN KEY
@@ -494,10 +547,10 @@ namespace CoreTypes
             this.Experiences = new ObservableCollection<Experience>();
             this.Licenses = new ObservableCollection<License>();
 
+            this.Permission = Permission.NoSpecialPermission;
             this.Gender = Gender.NotSet;
             this.MaritalStatus = MaritalStatus.NotSet;
             this.UserStatus = State.Inactived;
-
         }
     }
 }

@@ -22,6 +22,7 @@ namespace CoreTypes
         {
             this.Users = new ObservableCollection<User>();
             this.Status = Status.Actived;
+
         }
 
         #region REQUIRED PROPERTIES
@@ -95,18 +96,6 @@ namespace CoreTypes
 
         #endregion
 
-        #region METHODS
-
-        /// <summary>
-        /// Swap the display index of 2 jobtitles
-        /// </summary>
-        public static void SwapDisplay(ref JobTitle job1,ref JobTitle job2)
-        {
-            int temp = job1.DisplayIndex;
-            job1.DisplayIndex = job2.DisplayIndex;
-            job2.DisplayIndex = temp;
-        }
-
-        #endregion
+     
     }
 }
