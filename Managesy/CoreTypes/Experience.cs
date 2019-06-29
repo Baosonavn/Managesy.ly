@@ -3,49 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoreTypes.Enums.Education;
 
 namespace CoreTypes
 {
-    public class Education: EntityType
+    public class Experience: EntityType
     {
-        private string _Institution;
-        private Level _Level;
+        private string _Organization;
         private string _Country;
         private string _Province;
-        private string _Major;
+        private string _WorkDescription;
         private string _From;
         private string _To;
         private bool _IsOnProgress;
+        private string _ResignReason;
 
         /// <summary>
-        /// Get or set the Inistitution name.
+        /// Get or set the Organization name.
         /// </summary>
-        public string Institution
+        public string Organization
         {
-            get { return _Institution; }
+            get { return _Organization; }
             set
             {
-                if (value != null || value != _Institution) _Institution = value;
+                if (value != null || value != _Organization) _Organization = value;
                 OnPropertyChanged();
             }
         }
 
         /// <summary>
-        /// Get or set the education degree level
-        /// </summary>
-        public Level Level
-        {
-            get { return _Level; }
-            set
-            {
-                if (value != _Level) _Level = value;
-                OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// Get or set the country of this education
+        /// Get or set the country of this experience
         /// </summary>
         public string Country
         {
@@ -71,20 +57,33 @@ namespace CoreTypes
         }
 
         /// <summary>
-        /// Get or set the major of this education record.
+        /// Get or set the Description of this experience record.
         /// </summary>
-        public string Major
+        public string WorkDescription
         {
-            get { return _Major; }
+            get { return _WorkDescription; }
             set
             {
-                if (value != null || value != _Major) _Major = value;
+                if (value != null || value != _WorkDescription) _WorkDescription = value;
                 OnPropertyChanged();
             }
         }
 
         /// <summary>
-        /// Get or set the time when this education begin
+        /// Get or set the reason why the User quit this job
+        /// </summary>
+        public string ResignReason
+        {
+            get { return _ResignReason; }
+            set
+            {
+                if (value != null || value != _ResignReason) _ResignReason = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set the time when this experience begin
         /// </summary>
         public string From
         {
@@ -97,7 +96,7 @@ namespace CoreTypes
         }
 
         /// <summary>
-        /// Get or set the time when this education ended.
+        /// Get or set the time when this experience ended.
         /// </summary>
         public string To
         {
@@ -110,9 +109,9 @@ namespace CoreTypes
         }
 
         /// <summary>
-        /// Get or set if this education is in progress
+        /// Get or set if this is the current work
         /// </summary>
-        public bool IsInProgress
+        public bool IsWorking
         {
             get { return _IsOnProgress; }
             set

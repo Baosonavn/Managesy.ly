@@ -32,6 +32,18 @@ namespace CoreTypes
         private string _Note;
         private string _Skype;
         private string _Facebook;
+        private string _PermanentAddr;
+        private string _Id_Number;
+        private string _Id_Place;
+        private DateTime? _Id_Date;
+        private string _Pp_Number;
+        private string _Pp_Place;
+        private DateTime? _PP_Date;
+        private string _SI_Number;
+        private string _PIT_Code;
+        private ICollection<Education> _Educations;
+        private ICollection<Experience> _Experiences;
+        private ICollection<License> _Licenses;
         #endregion
 
         #region REQUIRED PROPERTIES
@@ -196,6 +208,44 @@ namespace CoreTypes
         /// </summary>
         public virtual ICollection<BankAccount> BankAccounts { get; set; }
 
+        /// <summary>
+        /// Get or set this user's education records.
+        /// </summary>
+        public virtual ICollection<Education> Educations
+        {
+            get { return _Educations; }
+            set
+            {
+                if (value != null || value != _Educations) _Educations = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set this user's working experiences.
+        /// </summary>
+        public virtual ICollection<Experience> Experiences
+        {
+            get { return _Experiences; }
+            set
+            {
+                if (value != null || value != _Experiences) _Experiences = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set this user's professional licenses
+        /// </summary>
+        public virtual ICollection<License> Licenses
+        {
+            get { return _Licenses; }
+            set
+            {
+                if (value != null || value != _Licenses) _Licenses = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion
 
         #region FOREIGN KEY
@@ -316,12 +366,133 @@ namespace CoreTypes
                 OnPropertyChanged();
             }
         }
+
+
+        /// <summary>
+        /// Get or set this user's permanent address
+        /// </summary>
+        public string PermanentAddr
+        {
+            get { return _PermanentAddr; }
+            set
+            {
+                if (value != null || value != _PermanentAddr) _PermanentAddr = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set this user's identify number
+        /// </summary>
+        public string Id_Number
+        {
+            get { return _Id_Number; }
+            set
+            {
+                if (value != null || value != _Id_Number) _Id_Number = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set where this user's id was issued.
+        /// </summary>
+        public string Id_Place
+        {
+            get { return _Id_Place; }
+            set
+            {
+                if (value != null || value != _Id_Place) _Id_Place = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set when this user's id was issued.
+        /// </summary>
+        public DateTime? Id_Date
+        {
+            get { return _Id_Date; }
+            set
+            {
+                if (value != null || value != _Id_Date) _Id_Date = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set this user's passport number.
+        /// </summary>
+        public string Pp_Number
+        {
+            get { return _Pp_Number; }
+            set
+            {
+                if (value != null || value != _Pp_Number) _Pp_Number = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set where this user's passport was issued.
+        /// </summary>
+        public string Pp_Place
+        {
+            get { return _Pp_Place; }
+            set
+            {
+                if (value != null || value != _Pp_Place) _Pp_Place = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set when this user's passport was issued.
+        /// </summary>
+        public DateTime? Pp_Date
+        {
+            get { return _PP_Date; }
+            set
+            {
+                if (value != null || value != _PP_Date) _PP_Date = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set this user's socical issuarance book number.
+        /// </summary>
+        public string SI_Number
+        {
+            get { return _SI_Number; }
+            set
+            {
+                if (value != null || value != _SI_Number) _SI_Number = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set this user's personal income tax code.
+        /// </summary>
+        public string PIT_Code
+        {
+            get { return _PIT_Code; }
+            set
+            {
+                if (value != null || value != _PIT_Code) _PIT_Code = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion
 
         public User()
         {
             this.BankAccounts = new ObservableCollection<BankAccount>();
             this.JobTitles = new ObservableCollection<JobTitle>();
+            this.Educations = new ObservableCollection<Education>();
+            this.Experiences = new ObservableCollection<Experience>();
+            this.Licenses = new ObservableCollection<License>();
 
             this.Gender = Gender.NotSet;
             this.MaritalStatus = MaritalStatus.NotSet;
