@@ -47,6 +47,7 @@
     <Compile Include="BusinessField.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Department.cs" />
+    <Compile Include="Education.cs" />
     <Compile Include="EntityType.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="JobTitle.cs" />

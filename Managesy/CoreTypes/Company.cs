@@ -26,17 +26,7 @@ namespace CoreTypes
         private string _Note;
         private ICollection<BusinessField> _BusinessFields;
         private ICollection<BankAccount> _BankAccounts;
-        #endregion
-
-        public Company()
-        {
-            this.Departments = new ObservableCollection<Department>();
-            this.Customers = new ObservableCollection<Company>();
-            this.BusinessFields = new ObservableCollection<BusinessField>();
-            this.BankAccounts = new ObservableCollection<BankAccount>();
-            this.Users = new ObservableCollection<User>();
-            this.Type = Enums.Company.Type.Customer;
-        }
+        #endregion 
 
         #region REQUIRED PROPERTIES
 
@@ -224,5 +214,15 @@ namespace CoreTypes
             }
         }
         #endregion
+
+        public Company()
+        {
+            this.Departments = new ObservableCollection<Department>();
+            this.Customers = new ObservableCollection<Company>();
+            this.BusinessFields = new ObservableCollection<BusinessField>();
+            this.BankAccounts = new ObservableCollection<BankAccount>();
+            this.Users = new ObservableCollection<User>();
+            this.Type = Enums.Company.Type.Customer;
+        }
     }
 }

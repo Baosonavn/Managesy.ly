@@ -59,5 +59,17 @@ namespace CoreTypes
                 User
             }
         }
+
+        namespace Education
+        {
+            public enum Level
+            {
+                Bachelor, //Dai hoc
+                Associate, //cao dang
+                Master, //Thac si
+                PhD, //Tien si
+                Other
+            }
+        }
     }
 }

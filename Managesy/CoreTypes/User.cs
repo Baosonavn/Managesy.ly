@@ -29,6 +29,9 @@ namespace CoreTypes
         private string _AvatarUrl;
         private Gender _Gender;
         private MaritalStatus _MaritalStatus;
+        private string _Note;
+        private string _Skype;
+        private string _Facebook;
         #endregion
 
         #region REQUIRED PROPERTIES
@@ -271,6 +274,45 @@ namespace CoreTypes
             set
             {
                 if (value != null || value != _AvatarUrl) _AvatarUrl = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set the self note of this user
+        /// </summary>
+        public string Note
+        {
+            get { return _Note; }
+            set
+            {
+                if (value != null || value != _Note) _Note = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set the skype name of this user.
+        /// </summary>
+        public string Skype
+        {
+            get { return _Skype; }
+            set
+            {
+                if (value != null || value != _Skype) _Skype = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set the facebook address of this user.
+        /// </summary>
+        public string Facebook
+        {
+            get { return _Facebook; }
+            set
+            {
+                if (value != null || value != _Facebook) _Facebook = value;
                 OnPropertyChanged();
             }
         }
