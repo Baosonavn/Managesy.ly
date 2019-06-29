@@ -31,6 +31,9 @@ namespace CoreTypes
         private byte[] _TimeStamp;
         private int? _ModifiedByUserId;
         private int? _CreatedByUserId;
+        private string _Custom1;
+        private string _Custom2;
+        private string _Custom3;
 
         /// <summary>
         /// Get or set the unique guid of this entity.
@@ -124,7 +127,44 @@ namespace CoreTypes
             }
         }
 
+        /// <summary>
+        /// Get or set a custom string
+        /// </summary>
+        public string Custom1
+        {
+            get { return _Custom1; }
+            set
+            {
+                if (value != null || value != _Custom1) _Custom1 = value;
+                OnPropertyChanged();
+            }
+        }
 
+        /// <summary>
+        /// Get or set a custom string
+        /// </summary>
+        public string Custom2
+        {
+            get { return _Custom2; }
+            set
+            {
+                if (value != null || value != _Custom2) _Custom2 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set a custom string
+        /// </summary>
+        public string Custom3
+        {
+            get { return _Custom3; }
+            set
+            {
+                if (value != null || value != _Custom3) _Custom3 = value;
+                OnPropertyChanged();
+            }
+        }
 
         #region VIRTUAL PROPERTIES
 

@@ -44,12 +44,20 @@ namespace CoreTypes
             /// </summary>
             public enum MaritalStatus
             {
+                NotSet,
                 Single,
                 Married,
                 Divorced
             }
         }
  
-
+        namespace Company
+        {
+            public enum Type
+            {
+                Customer,
+                User
+            }
+        }
     }
 }

@@ -19,14 +19,8 @@ namespace CoreTypes
         private Status _Status;
         private User _HeadUser;
         private User _ViceUser;
+        private Company _Company;
         #endregion
-
-        public Department()
-        {
-            this.Users = new ObservableCollection<User>();
-            this.ChildDepartments = new ObservableCollection<Department>();
-            this.Status = Status.Actived;
-        }
 
         #region REQUIRED PROPERTIES
 
@@ -135,6 +129,19 @@ namespace CoreTypes
                 OnPropertyChanged();
             }
         }
+
+        /// <summary>
+        /// The company of this Company
+        /// </summary>
+        public virtual Company Company
+        {
+            get { return _Company; }
+            set
+            {
+                if (value != null || value != _Company) _Company = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion
 
         #region FOREIGN KEYS
@@ -153,6 +160,18 @@ namespace CoreTypes
         /// Get or set the Id of this department's vice head user
         /// </summary>
         public int ViceHeadUserId { get; set; }
+
+        /// <summary>
+        /// Get or set the Id of this department's Company
+        /// </summary>
+        public int CompanyId { get; set; }
         #endregion
+
+        public Department()
+        {
+            this.Users = new ObservableCollection<User>();
+            this.ChildDepartments = new ObservableCollection<Department>();
+            this.Status = Status.Actived;
+        }
     }
 }

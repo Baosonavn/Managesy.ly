@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -167,7 +168,7 @@ namespace CoreTypes
             }
         }
 
-
+        
         #endregion
 
         #region NAVIGATION PROPERTIES
@@ -182,6 +183,16 @@ namespace CoreTypes
         /// </summary>
         public virtual ICollection<JobTitle> JobTitles { get; set; }
 
+        /// <summary>
+        /// Get or set this user's company
+        /// </summary>
+        public virtual Company Company { get; set; } 
+
+        /// <summary>
+        /// Get or set this user's bank accounts
+        /// </summary>
+        public virtual ICollection<BankAccount> BankAccounts { get; set; }
+
         #endregion
 
         #region FOREIGN KEY
@@ -191,6 +202,10 @@ namespace CoreTypes
         /// </summary>
         public int DepartmentId { get; set; }
 
+        /// <summary>
+        /// Get or set the company id of this user.
+        /// </summary>
+        public int CompanyId { get; set; }
         #endregion
 
         #region Some personal information
@@ -260,5 +275,16 @@ namespace CoreTypes
             }
         }
         #endregion
+
+        public User()
+        {
+            this.BankAccounts = new ObservableCollection<BankAccount>();
+            this.JobTitles = new ObservableCollection<JobTitle>();
+
+            this.Gender = Gender.NotSet;
+            this.MaritalStatus = MaritalStatus.NotSet;
+            this.UserStatus = State.Inactived;
+
+        }
     }
 }
