@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CoreTypes.Enums;
 using CoreTypes.Enums.Project;
 
 namespace CoreTypes
@@ -25,6 +26,7 @@ namespace CoreTypes
         private int _CategoryID;
         private ICollection<Tag> _Tags;
         private int _DisplayIndex;
+        private ICollection<TaskList> _TaskLists;
 
         /// <summary>
         /// Get or set the name of the project
@@ -221,10 +223,25 @@ namespace CoreTypes
             }
         }
 
+
+        /// <summary>
+        /// Get or set the tasklist collection in this project
+        /// </summary>
+        public ICollection<TaskList> TaskLists
+        {
+            get { return _TaskLists; }
+            set
+            {
+                if (value != null || value != _TaskLists) _TaskLists = value;
+                OnPropertyChanged();
+            }
+        }
+
         public Project()
         {
             this.Users = new ObservableCollection<User>();
             this.Tags = new ObservableCollection<Tag>();
+            this.TaskLists = new ObservableCollection<TaskList>();
 
             //Default: Enable all feature
             this.Feature = Feature.Files | Feature.Message | Feature.Milestones | Feature.Risks | Feature.Task | Feature.Time;

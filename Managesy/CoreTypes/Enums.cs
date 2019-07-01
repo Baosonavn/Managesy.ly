@@ -12,7 +12,12 @@ namespace CoreTypes
         {
             Actived,
             InActived,
-            Deleted
+            Deleted,
+            NotStarted,
+            Started,
+            Postponed,
+            Completed,
+            Archived,
         }
 
         namespace User
@@ -100,16 +105,6 @@ namespace CoreTypes
                 Links = 256,
                 Comments = 512
             }
-
-            public enum Status
-            {
-                NotStarted,
-                Started,
-                Postponed,
-                Completed,
-                Archived,
-                Deleted,
-            }
         }
 
         namespace Sort
@@ -128,6 +123,19 @@ namespace CoreTypes
                 Ascending,
                 Descending
             }
+        }
+
+        namespace Task
+        {
+            public enum Priority
+            {
+                None,
+                Low,
+                Medium,
+                High
+            }
+
+      
         }
     }
 }
