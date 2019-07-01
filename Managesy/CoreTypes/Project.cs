@@ -23,6 +23,8 @@ namespace CoreTypes
         private Status _Status;
         private ProjectCategory _Category;
         private int _CategoryID;
+        private ICollection<Tag> _Tags;
+        private int _DisplayIndex;
 
         /// <summary>
         /// Get or set the name of the project
@@ -193,10 +195,36 @@ namespace CoreTypes
             }
         }
 
+        /// <summary>
+        /// Get or set the tag collection of this project
+        /// </summary>
+        public virtual ICollection<Tag> Tags
+        {
+            get { return _Tags; }
+            set
+            {
+                if (value != null || value != _Tags) _Tags = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set the display index of this project in the board
+        /// </summary>
+        public int DisplayIndex
+        {
+            get { return _DisplayIndex; }
+            set
+            {
+                if (value != _DisplayIndex) _DisplayIndex = value;
+                OnPropertyChanged();
+            }
+        }
 
         public Project()
         {
             this.Users = new ObservableCollection<User>();
+            this.Tags = new ObservableCollection<Tag>();
 
             //Default: Enable all feature
             this.Feature = Feature.Files | Feature.Message | Feature.Milestones | Feature.Risks | Feature.Task | Feature.Time;

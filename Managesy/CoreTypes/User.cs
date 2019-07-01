@@ -49,6 +49,9 @@ namespace CoreTypes
         private ICollection<JobTitle> _JobTitles;
         private Company _Company;
         private Department _Department;
+        private ICollection<Board> _Boards;
+        private ICollection<Project> _AssignedProject;
+        private ICollection<Project> _StartedProjects;
         #endregion
 
         #region REQUIRED PROPERTIES
@@ -298,7 +301,44 @@ namespace CoreTypes
             }
         }
 
-       
+        /// <summary>
+        /// Get or set this user's board collection
+        /// </summary>
+        public virtual ICollection<Board> Boards
+        {
+            get { return _Boards; }
+            set
+            {
+                if (value != null || value != _Boards) _Boards = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set the projects that assigned to this user
+        /// </summary>
+        public virtual ICollection<Project> AssignedProjects
+        {
+            get { return _AssignedProject; }
+            set
+            {
+                if (value != null || value != _AssignedProject) _AssignedProject = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set the projects that stared by this user
+        /// </summary>
+        public virtual ICollection<Project> StartedProjects
+        {
+            get { return _StartedProjects; }
+            set
+            {
+                if (value != null || value != _StartedProjects) _StartedProjects = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion
 
         #region FOREIGN KEY
@@ -546,6 +586,7 @@ namespace CoreTypes
             this.Educations = new ObservableCollection<Education>();
             this.Experiences = new ObservableCollection<Experience>();
             this.Licenses = new ObservableCollection<License>();
+            this.Boards = new ObservableCollection<Board>();
 
             this.Permission = Permission.NoSpecialPermission;
             this.Gender = Gender.NotSet;

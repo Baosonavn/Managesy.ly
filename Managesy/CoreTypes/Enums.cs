@@ -58,7 +58,8 @@ namespace CoreTypes
                 AccessProjectTemplate = 4,
                 ManagePeopleAndCompany = 8,
                 ExecutiveAccessToAllProjects = 16,
-                NoSpecialPermission = 32
+                ManageProjectPortfolio = 32,
+                NoSpecialPermission = 64
             }
         }
  
@@ -108,6 +109,24 @@ namespace CoreTypes
                 Completed,
                 Archived,
                 Deleted,
+            }
+        }
+
+        namespace Sort
+        {
+            public enum SortBy
+            {
+                Name,
+                DateCreated,
+                StartDate,
+                EndDate,
+                Customer,
+            }
+
+            public enum SortDirection
+            {
+                Ascending,
+                Descending
             }
         }
     }
