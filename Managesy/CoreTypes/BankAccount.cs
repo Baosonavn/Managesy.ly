@@ -13,6 +13,8 @@ namespace CoreTypes
         private string _AccountOwner;
         private string _Number;
         private string _Branch;
+        private Customer _Company;
+        private User _User;
 
         /// <summary>
         /// Get or set the bank of this account.
@@ -26,20 +28,7 @@ namespace CoreTypes
                 OnPropertyChanged();
             }
         }
-
-        /// <summary>
-        /// Get or set the name of this account's owner.
-        /// </summary>
-        public string AccountOwner
-        {
-            get { return _AccountOwner; }
-            set
-            {
-                if (value != null || value != _AccountOwner) _AccountOwner = value;
-                OnPropertyChanged();
-            }
-        }
-
+  
         /// <summary>
         /// Get or set the account number
         /// </summary>
@@ -79,5 +68,55 @@ namespace CoreTypes
                 OnPropertyChanged();
             }
         }
+
+        public Guid BankGuid { get; set; }
+
+        /// <summary>
+        /// Get or set the company that own this bank account
+        /// </summary>
+        public virtual Customer Company
+        {
+            get { return _Company; }
+            set
+            {
+                if (value != null || value != _Company) _Company = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Get or set the owning company's id
+        /// </summary>
+        public int?  CompanyId { get; set; }
+
+        /// <summary>
+        /// Get or set the owning company's Guid
+        /// </summary>
+        public Guid? CompanyGuid { get; set; }
+
+        /// <summary>
+        /// Get or set the user that own this bank account
+        /// </summary>
+        public virtual User User
+        {
+            get { return _User; }
+            set
+            {
+                if (value != null || value != _User) _User = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        /// <summary>
+        /// Get or set the owning user's id
+        /// </summary>
+        public int? UserId { get; set; }
+
+        /// <summary>
+        /// Get or set the owning user's Guid
+        /// </summary>
+        public Guid? UserGuid { get; set; }
+
     }
 }

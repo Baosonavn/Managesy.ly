@@ -47,7 +47,7 @@ namespace CoreTypes
         private Permission _Permission;
         private ICollection<BankAccount> _BankAccounts;
         private ICollection<JobTitle> _JobTitles;
-        private Company _Company;
+        private Customer _Company;
         private Department _Department;
         private ICollection<Board> _Boards;
         private ICollection<Project> _AssignedProject;
@@ -239,7 +239,7 @@ namespace CoreTypes
         /// <summary>
         /// Get or set this user's company
         /// </summary>
-        public virtual Company Company
+        public virtual Customer Company
         {
             get { return _Company; }
             set
@@ -346,12 +346,13 @@ namespace CoreTypes
         /// <summary>
         /// Get or set the department id of this user.
         /// </summary>
-        public int DepartmentId { get; set; }
+        public int? DepartmentId { get; set; }
 
         /// <summary>
-        /// Get or set the company id of this user.
+        /// Get or set the department guid of this user
         /// </summary>
-        public int CompanyId { get; set; }
+        public Guid? DepartmentGuid { get; set; }
+
         #endregion
 
         #region Some personal information
@@ -577,6 +578,7 @@ namespace CoreTypes
                 OnPropertyChanged();
             }
         }
+
         #endregion
 
         public User()

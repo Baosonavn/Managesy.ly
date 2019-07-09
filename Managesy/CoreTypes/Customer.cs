@@ -4,20 +4,18 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CoreTypes.Enums.Company;
 
 namespace CoreTypes
 {
-    public class Company: EntityType
+    public class Customer: EntityType
     {
 
         #region FIELDS
         private string _Name;
         private string _ShortName;
         private string _TaxCode;
-        private Enums.Company.Type _Type;
         private ICollection<Department> _Departments;
-        private ICollection<Company> _Customers;
+        private ICollection<Customer> _Customers;
         private string _Address;
         private string _PhoneNumber;
         private string _Email;
@@ -81,20 +79,7 @@ namespace CoreTypes
                 OnPropertyChanged();
             }
         }
-
-        /// <summary>
-        /// Get or set the type of this company
-        /// </summary>
-        public Enums.Company.Type Type
-        {
-            get { return _Type; }
-            set
-            {
-                if (value != _Type) _Type = value;
-                OnPropertyChanged();
-            }
-        }
-
+   
         /// <summary>
         /// Get or set the address of this company.
         /// </summary>
@@ -149,44 +134,6 @@ namespace CoreTypes
         #endregion
 
         #region NAVIGATION PROPERTIES
-        /// <summary>
-        /// Get or set the department collection of this company.
-        /// </summary>
-        public virtual ICollection<Department> Departments
-        {
-            get { return _Departments; }
-            set
-            {
-                if (value != null || value != _Departments) _Departments = value;
-                OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// Get or set the customers collection of this company.
-        /// </summary>
-        public virtual ICollection<Company> Customers
-        {
-            get { return _Customers; }
-            set
-            {
-                if (value != null || value != _Customers) _Customers = value;
-                OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// Get or set the user collection of this company.
-        /// </summary>
-        public virtual ICollection<User> Users
-        {
-            get { return _Users; }
-            set
-            {
-                if (value != null || value != _Users) _Users = value;
-                OnPropertyChanged();
-            }
-        }
 
         /// <summary>
         /// Get or set the business fields of this company.
@@ -213,16 +160,15 @@ namespace CoreTypes
                 OnPropertyChanged();
             }
         }
+
+        public virtual ICollection<Project> Projects { get; set; }
         #endregion
 
-        public Company()
+        public Customer()
         {
-            this.Departments = new ObservableCollection<Department>();
-            this.Customers = new ObservableCollection<Company>();
             this.BusinessFields = new ObservableCollection<BusinessField>();
             this.BankAccounts = new ObservableCollection<BankAccount>();
-            this.Users = new ObservableCollection<User>();
-            this.Type = Enums.Company.Type.Customer;
+            this.Projects = new ObservableCollection<Project>();
         }
     }
 }

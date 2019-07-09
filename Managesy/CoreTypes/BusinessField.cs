@@ -10,11 +10,11 @@ namespace CoreTypes
     public class BusinessField: EntityType
     {
         private string _Name;
-        private ICollection<Company> _Companies;
+        private ICollection<Customer> _Companies;
 
         public BusinessField()
         {
-            this.Companies = new ObservableCollection<Company>();
+            this.Companies = new ObservableCollection<Customer>();
         }
 
         public string Name
@@ -30,7 +30,7 @@ namespace CoreTypes
         /// <summary>
         /// Get or set the company collection of this field
         /// </summary>
-        public virtual ICollection<Company> Companies
+        public virtual ICollection<Customer> Companies
         {
             get { return _Companies; }
             set

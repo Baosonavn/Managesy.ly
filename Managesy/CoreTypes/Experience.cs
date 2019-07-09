@@ -130,5 +130,6 @@ namespace CoreTypes
         /// Get or set the id of the user who has this record
         /// </summary>
         public int UserId { get; set; }
+        public Guid UserGuid { get; set; }
     }
 }

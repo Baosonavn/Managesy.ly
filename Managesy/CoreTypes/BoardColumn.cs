@@ -138,6 +138,8 @@ namespace CoreTypes
             }
         }
 
+        public Guid BoardGuid { get; set; }
+
         public BoardColumn()
         {
             this.Projects = new ObservableCollection<Project>();

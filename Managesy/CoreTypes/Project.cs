@@ -13,7 +13,7 @@ namespace CoreTypes
     {
         private string _Name;
         private string _Description;
-        private Company _Company;
+        private Customer _Company;
         private int _CompanyId;
         private ICollection<User> _Users;
         private User _Owner;
@@ -23,7 +23,7 @@ namespace CoreTypes
         private DateTime? _End;
         private Status _Status;
         private ProjectCategory _Category;
-        private int _CategoryID;
+        private int? _CategoryID;
         private ICollection<Tag> _Tags;
         private int _DisplayIndex;
         private ICollection<TaskList> _TaskLists;
@@ -57,7 +57,7 @@ namespace CoreTypes
         /// <summary>
         /// Get or set the Company of this project.
         /// </summary>
-        public virtual Company Company
+        public virtual Customer Customer
         {
             get { return _Company; }
             set
@@ -70,20 +70,15 @@ namespace CoreTypes
         /// <summary>
         /// The Id of this project's company
         /// </summary>
-        public int CompanyId
-        {
-            get { return _CompanyId; }
-            set
-            {
-                if ( value != _CompanyId) _CompanyId = value;
-                OnPropertyChanged();
-            }
-        }
+        public int? CustomerId { get; set; }
+
+        public Guid? CustomerGuid { get; set; }
+     
 
         /// <summary>
         /// Get or set the users assigned to this project.
         /// </summary>
-        public virtual ICollection<User> Users
+        public virtual ICollection<User> AssignedUsers
         {
             get { return _Users; }
             set
@@ -118,6 +113,8 @@ namespace CoreTypes
                 OnPropertyChanged();
             }
         }
+
+        public Guid OwnerGuid { get; set; }
 
         /// <summary>
         /// Get or set the feature of this project.
@@ -187,7 +184,7 @@ namespace CoreTypes
         /// <summary>
         /// Get or set the id of this project's category 
         /// </summary>
-        public int CategoryId
+        public int? CategoryId
         {
             get { return _CategoryID; }
             set
@@ -237,9 +234,16 @@ namespace CoreTypes
             }
         }
 
+        public Guid? CategoryGuid { get; set; }
+        public BoardColumn BoardColumn { get; set; }
+
+        public int? BoardColumnId { get; set; }
+
+        public Guid? BoardColumnGuid { get; set; }
+
         public Project()
         {
-            this.Users = new ObservableCollection<User>();
+            this.AssignedUsers = new ObservableCollection<User>();
             this.Tags = new ObservableCollection<Tag>();
             this.TaskLists = new ObservableCollection<TaskList>();
 

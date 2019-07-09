@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace CoreTypes
@@ -8,7 +9,7 @@ namespace CoreTypes
         private string _Name;
         private string _ColorCode;
         private ProjectCategory _SuperCategory;
-        private int _SuperCategoryId;
+        private int? _SuperCategoryId;
         private ICollection<ProjectCategory> _SubCategories;
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace CoreTypes
         /// <summary>
         /// Get or set the id of this category's super cat
         /// </summary>
-        public int SuperCategoryId
+        public int? SuperCategoryId
         {
             get { return _SuperCategoryId; }
             set
@@ -75,6 +76,8 @@ namespace CoreTypes
                 OnPropertyChanged();
             }
         }
+
+        public Guid? SuperCategoryGuid { get; set; }
 
         public ProjectCategory()
         {

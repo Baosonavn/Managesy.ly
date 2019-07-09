@@ -35,6 +35,8 @@ namespace CoreTypes
         private string _Custom1;
         private string _Custom2;
         private string _Custom3;
+        private Guid? _CreatedByUserGuid;
+        private Guid? _ModifiedByUserGuid;
 
         /// <summary>
         /// Get or set the unique guid of this entity.
@@ -112,6 +114,32 @@ namespace CoreTypes
             {
                 if (value != _ModifiedByUserId) _ModifiedByUserId = value;
                 OnPropertyChanged("ModifiedByUserId");
+            }
+        }
+
+        /// <summary>
+        /// The Guid of the user modified this entity.
+        /// </summary>
+        public Guid? ModifiedByUserGuid
+        {
+            get { return this._ModifiedByUserGuid; }
+            set
+            {
+                if (value != null || value != _ModifiedByUserGuid) _ModifiedByUserGuid = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// The Guid of the user created this entity
+        /// </summary>
+        public Guid? CreatedByUserGuid
+        {
+            get { return _CreatedByUserGuid; }
+            set
+            {
+                if (value != null || value != _CreatedByUserGuid) _CreatedByUserGuid = value;
+                OnPropertyChanged();
             }
         }
 

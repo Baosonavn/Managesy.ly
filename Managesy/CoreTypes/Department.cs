@@ -19,7 +19,7 @@ namespace CoreTypes
         private Status _Status;
         private User _HeadUser;
         private User _ViceUser;
-        private Company _Company;
+        private Customer _Company;
         #endregion
 
         #region REQUIRED PROPERTIES
@@ -130,18 +130,6 @@ namespace CoreTypes
             }
         }
 
-        /// <summary>
-        /// The company of this Company
-        /// </summary>
-        public virtual Company Company
-        {
-            get { return _Company; }
-            set
-            {
-                if (value != null || value != _Company) _Company = value;
-                OnPropertyChanged();
-            }
-        }
         #endregion
 
         #region FOREIGN KEYS
@@ -162,9 +150,19 @@ namespace CoreTypes
         public int ViceHeadUserId { get; set; }
 
         /// <summary>
-        /// Get or set the Id of this department's Company
+        /// Get or set the Guid of this department 's parent dept
         /// </summary>
-        public int CompanyId { get; set; }
+        public Guid ParentDepartmentGuid { get; set; }
+              
+        /// <summary>
+        /// Get or set the Guid of this department's head user
+        /// </summary>
+        public Guid HeadUserGuid { get; set; }
+
+        /// <summary>
+        /// Get or set the Guid of this department's vice head user
+        /// </summary>
+        public Guid ViceHeadUserGuid { get; set; }
         #endregion
 
         public Department()

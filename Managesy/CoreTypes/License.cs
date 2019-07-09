@@ -154,5 +154,14 @@ namespace CoreTypes
         /// Get or set the id of this license's owner.
         /// </summary>
         public int UserId { get; set; }
+
+        public Guid UserGuid { get; set; }
+
+
+        public virtual LicenseType LicenseType { get; set; }
+
+        public int LicenseTypeId { get; set; }
+
+        public int LicenseTypeGuid { get; set; }
     }
 }

@@ -67,15 +67,6 @@ namespace CoreTypes
                 NoSpecialPermission = 64
             }
         }
- 
-        namespace Company
-        {
-            public enum Type
-            {
-                Customer,
-                User
-            }
-        }
 
         namespace Education
         {
